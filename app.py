@@ -1,5 +1,6 @@
 # imports
 import numpy as np
+import os
 from flask import Flask, request, render_template, jsonify, redirect
 from werkzeug.utils import secure_filename
 from tensorflow.keras.preprocessing import image
@@ -61,7 +62,7 @@ def home():
                     prediction = "antineoplastic"
                 elif prediction[0] == 1:
                     prediction = "CNS"
-                elif prediction[0] == 1:
+                elif prediction[0] == 2:
                     prediction = "cardio"
 
                 return render_template("/results.html", prediction=prediction, imgpath = img_path)
