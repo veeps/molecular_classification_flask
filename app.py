@@ -1,7 +1,6 @@
 # imports
 import numpy as np
 import pandas as pd
-import os
 from flask import Flask, request, render_template, jsonify, redirect
 from werkzeug.utils import secure_filename
 from tensorflow.keras.models import Sequential, load_model
