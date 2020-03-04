@@ -2,7 +2,6 @@
 import numpy as np
 from flask import Flask, request, render_template, jsonify, redirect
 from werkzeug.utils import secure_filename
-from tensorflow.keras.models import Sequential, load_model
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.models import model_from_json
 
