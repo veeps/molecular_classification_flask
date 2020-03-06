@@ -1,7 +1,7 @@
 # imports
 import numpy as np
 import os
-from flask import Flask, request, render_template, jsonify, redirect
+from flask import Flask, request, render_template, jsonify, redirect, json
 from werkzeug.utils import secure_filename
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.models import model_from_json
@@ -47,10 +47,11 @@ def home():
 
                 img_path = "static/images/"+filename
 
+                with open("assets/model.json") as f:
+                    data = json.loads(f.read())
+                    data = json.dumps(data) # converts json file into string
 
-                json_string = open("/assets/model.json")
-
-                model = model_from_json(json_string)
+                model = model_from_json(data)
 
                 test_image = image.load_img(img_path, target_size=(150, 150))
                 img_tensor = image.img_to_array(test_image)                    # (height, width, channels)
